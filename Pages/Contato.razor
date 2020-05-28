@@ -1,0 +1,83 @@
+﻿@page "/contato"
+@inject IJSRuntime js
+@inject NavigationManager navigation
+
+@using System.Net.Mail;
+@using System.ComponentModel.DataAnnotations;
+
+<h3>Contato</h3>
+<div class="form-group">
+    <EditForm Model="@email">
+        <DataAnnotationsValidator />
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <label>Seu nome: </label>
+            </div>
+            <div class="col-md-6">
+                <InputText @bind-Value="@email.Nome" />
+                <ValidationMessage For="(()=> email.Nome)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <label>Seu email: </label>
+            </div>
+            <div class="col-md-6">
+                <InputText @bind-Value="@email.EndEmail" />
+                <ValidationMessage For="(()=> email.EndEmail)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <label>Mensagem: </label>
+            </div>
+            <div class="col-md-12">
+                <InputTextArea @bind-Value="@email.Mensagem" />
+                <ValidationMessage For="(()=> email.Mensagem)" />
+            </div>
+        </div>
+        <br />
+        <button class="btn btn-success" @onclick="SendEmail">Enviar</button>
+        <br />
+        <span>@EmailEnviado</span>
+    </EditForm>
+
+</div>
+
+@code {
+
+    Email email = new Email();
+    public string EmailEnviado { get; set; } = "";
+    public async Task SendEmail()
+    {
+        if (!string.IsNullOrEmpty(email.Nome) || !string.IsNullOrEmpty(email.EndEmail) || !string.IsNullOrEmpty(email.Mensagem))
+        {
+            try
+            {
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress("gabriielseles@gmail.com");
+                    mail.To.Add("selesgabriel@gmail.com");
+                    mail.Subject = "Blazor teste";
+                    mail.Body = $"<h4>Nome: {email.Nome}</h4><br/><h4>Sobrenome: {email.EndEmail}</h4><br/><br/><p>{email.Mensagem}</p>";
+                    mail.IsBodyHtml = true;
+
+                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                    {
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new System.Net.NetworkCredential("gabriielseles@gmail.com", "Gabr2016@");
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                        await js.InvokeVoidAsync("alert", "Email enviado");
+                        navigation.NavigateTo("/index");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EmailEnviado = ex.Message;
+            }
+        }
+    }
+
+}

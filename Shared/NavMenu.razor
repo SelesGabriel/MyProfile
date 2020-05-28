@@ -1,0 +1,47 @@
+﻿<div class="top-row pl-4 navbar navbar-dark" style="background-color:#222;" >
+    <a class="navbar-brand" href=""></a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" style="background-color:#222" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column" >
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="experiencia">
+                <span class="oi oi-briefcase" aria-hidden="true"></span> Experiência
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="educacao">
+                <span class="oi oi-book" aria-hidden="true"></span> Educação
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="skills">
+                <span class="oi oi-code" aria-hidden="true"></span> Skills
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="contato">
+                <span class="oi oi-envelope-closed" aria-hidden="true"></span> Contato
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
