@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gsseles\\source\\repos\\BlazorServerProfile\\BlazorServerProfile.csproj": {}
+    "D:\\Projects\\BlazorServerProfile\\MyProfile\\BlazorServerProfile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gsseles\\source\\repos\\BlazorServerProfile\\BlazorServerProfile.csproj": {
+    "D:\\Projects\\BlazorServerProfile\\MyProfile\\BlazorServerProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gsseles\\source\\repos\\BlazorServerProfile\\BlazorServerProfile.csproj",
+        "projectUniqueName": "D:\\Projects\\BlazorServerProfile\\MyProfile\\BlazorServerProfile.csproj",
         "projectName": "BlazorServerProfile",
-        "projectPath": "C:\\Users\\gsseles\\source\\repos\\BlazorServerProfile\\BlazorServerProfile.csproj",
+        "projectPath": "D:\\Projects\\BlazorServerProfile\\MyProfile\\BlazorServerProfile.csproj",
         "packagesPath": "C:\\Users\\gsseles\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gsseles\\source\\repos\\BlazorServerProfile\\obj\\",
+        "outputPath": "D:\\Projects\\BlazorServerProfile\\MyProfile\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gsseles\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,9 +46,27 @@
               "target": "Package",
               "version": "[0.9.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.8, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Design": {
+              "target": "Package",
+              "version": "[1.1.2, )"
             }
           },
           "imports": [

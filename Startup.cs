@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
+using BlazorServerProfile.Data.Service;
+using BlazorServerProfile.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorServerProfile
 {
@@ -34,6 +37,8 @@ namespace BlazorServerProfile
             {
                 options.ChangeTextOnKeyPress = true; // optional
             }).AddBootstrapProviders().AddFontAwesomeIcons();
+            services.AddScoped<EmailService>();
+            services.AddDbContext<AppDbContext>(a => a.UseMySql(Configuration.GetConnectionString("MyConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

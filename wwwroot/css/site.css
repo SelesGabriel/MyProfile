@@ -8,6 +8,11 @@ a, .btn-link {
     color: #0366d6;
 }
 
+.perfil {
+    max-width: 0rem;
+    max-height: 0rem;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -151,6 +156,16 @@ app {
 }
 
 @media (min-width: 768px) {
+
+    .perfil {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: 0.5rem solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        margin-bottom:15%;
+        margin-left:15%;
+    }
+
     app {
         flex-direction: row;
     }

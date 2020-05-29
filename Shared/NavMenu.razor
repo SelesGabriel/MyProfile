@@ -6,7 +6,10 @@
 </div>
 
 <div class="@NavMenuCssClass" style="background-color:#222" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column" >
+    <ul class="nav flex-column">
+        <li>
+            <img class="perfil" src="css/perfil.jpg" />
+        </li>
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
@@ -30,6 +33,11 @@
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="contato">
                 <span class="oi oi-envelope-closed" aria-hidden="true"></span> Contato
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="projetos">
+                <span class="oi oi-project" aria-hidden="true"></span> Projetos
             </NavLink>
         </li>
     </ul>
